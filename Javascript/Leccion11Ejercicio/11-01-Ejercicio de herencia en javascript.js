@@ -1,10 +1,10 @@
 class Persona {
     static contadorPersonas = 0;
     constructor(nombre, apellido, edad) {
+        this._idPersona = ++Persona.contadorPersonas;
         this._nombre = nombre;
         this._apellido = apellido;
         this._edad = edad;
-        this._idPersona = ++Persona.contadorPersonas;
     }
     get idPersona() {
         return this._idPersona;
@@ -27,42 +27,41 @@ class Persona {
     set edad(edad) {
         this._edad = edad
     }
-    nombreCompleto() {
-        return this._idPersona + ': ' + this._nombre + ' ' + this._apellido + ' edad:' + this._edad;
-    }
+
     toString() {
-        return this.nombreCompleto();
+        return this._idPersona + ': ' + this._nombre + ' ' + this._apellido + ' edad:' + this._edad;
     }
 }
 class Empleado extends Persona {
-    idEmpleado = 'E';
+    static contadorEmpleados = 0;
+
     constructor(nombre, apellido, edad, sueldo) {
-        super(nombre, apellido, edad, sueldo);
-        this._idEmpleado = Empleado.idEmpleado;
+        super(nombre, apellido, edad);
+        this._idEmpleado = ++Empleado.contadorEmpleados;
         this._sueldo = sueldo;
     }
     get idEmpleado() {
-        return this.idEmpleado;
+        return this._idEmpleado;
     }
     get sueldo() {
-        return this.sueldo;
+        return this._sueldo;
     }
     set sueldo(sueldo) {
         this._sueldo = sueldo;
     }
-    nombreCompleto() {
-        return this._idEmpleado + super.nombreCompleto() + ' sueldo: ' + this._sueldo;
-    }
+
     toString() {
-        return this.nombreCompleto();
+        return super.toString() + ' E' + this._idEmpleado + ' sueldo: ' + this._sueldo;
     }
 }
 
 class Cliente extends Persona {
-    fechaRegistro = new Date();
-    constructor(idCliente) {
-        this._idCliente = idCliente;
-        this._fechaRegistro = Cliente.fechaRegistro;
+    static = contadorClientes = 0;
+
+    constructor(nombre, apellido, edad, fechaRegistro) {
+        super(nobre, apellido, edad);
+        this._idCliente = Cliente.contadorClientes;
+        this._fechaRegistro = fechaRegistro;
     }
     get idCliente() {
         return this._idCliente;
@@ -77,10 +76,17 @@ class Cliente extends Persona {
         return 'E' + super.nombreCompleto() + ' fecha del registro: ' + this._fechaRegistro;
     }
     toString() {
-        return this.nombreCompleto();
+        return super.toString() + 'C' + this._idCliente + 'Fecha de registro: ' + this.fechaRegistro;
     }
 }
-persona1 = new Persona('Juan', 'Pérez', 23);
+
+// prueba clase persona.
+
+let persona1 = new Persona('Juan', 'Pérez', 23);
 console.log(persona1.toString());
-empleado1 = new Empleado('Andres', 'Parra', '24', 2000000);
+
+let persona2 = new Persona('Carlos', 'Ramirez', 35);
+console.log(persona2.toString());
+
+let empleado1 = new Empleado('Karla', 'Gomez', 25, 5000);
 console.log(empleado1.toString());
