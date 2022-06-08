@@ -11,10 +11,11 @@
     <p id="parrafo">Lorem ipsum.</p>
     <script>
         let cabecero = document.getElementById('cabecero').innerHTML;
-        console.log('Valor cabecero: ' + cabecero);
+        console.log(`Valor cabecero: ${cabecero}`);
         let parrafo = document.getElementById('parrafo');
-        console.log('Valor parrafo: ' + parrafo.innerHTML);
-        console.log('Saludos desde javascript');
+        console.log(`Valor parrafo: ${parrafo.innerHTML}`);
+        parrafo.innerHTML = 'Nuevo valor del párrafo.';
+        cabecero.innerHTML = 'Nuevo cabecero';
     </script>
 </body>
 
