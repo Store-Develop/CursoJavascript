@@ -7,11 +7,15 @@
 </head>
 
 <body>
-    <h1 id="titulo">Manejo DOM con Javascript</h1>
-    <br /> Nombre: <input type="text" onchange="convertir(this)" />
+    <h1 id="titulo" onmouseover="rojo(this)" onmouseout="azul(this)">Manejo DOM con Javascript</h1>
+    <br />
     <script>
-        function convertir(nombreInput) {
-            nombreInput.value = nombreInput.value.toUpperCase();
+        function rojo(titulo) {
+            titulo.style.color = "red";
+        }
+
+        function azul(titulo) {
+            titulo.style.color = "blue";
         }
     </script>
 </body>
