@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Personas</title>
+    <title>Contactos</title>
     <link href="/Css/estilos.css" rel="stylesheet" />
 </head>
 
 <body onload="mostrarPersonas()">
     <div class='contenedor' id='cabecero'>
-        <h1>Listado de Personas</h1>
+        <h1>Listado de Contactos</h1>
     </div>
 
     <div class="contenedor">
@@ -28,7 +28,9 @@
         </div>
         <form id="forma">
             <input type="text" id="nombre" placeholder="Nombre" />
-            <input type="text" id="apellido" placeholder="Apellido" />
+            <input type="text" id="apellido" placeholder="Apellido (opcional)" />
+            <input type="number" id="contacto" placeholder="Contacto" style="text-align: center;" />
+            <input type="text" id="direccion" placeholder="Lugar (opcional)" />
         </form>
     </div>
     <script src="js/persona.js">
