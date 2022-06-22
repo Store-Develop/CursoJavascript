@@ -66,6 +66,7 @@ const eliminarIngreso = (id) => {
     cargarIngresos();
 }
 
+
 const crearIngresoHTML = (ingreso) => {
     let ingresoHTML = `
     <div class="elemento limpiarEstilos">
@@ -90,6 +91,8 @@ const cargarEgresos = () => {
     }
     document.getElementById("lista-egresos").innerHTML = egresosHTML;
 }
+
+
 const crearEgresoHTML = (egreso) => {
     let egresoHTML = `
     <div class="elemento limpiarEstilos">
@@ -99,11 +102,18 @@ const crearEgresoHTML = (egreso) => {
         <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
         <div class="elemento_eliminar">
             <button class="elemento_eliminar--btn">
-                <ion-icon name="close-circle-outline"></ion-icon>
+                <ion-icon name="close-circle-outline" onclick="eliminarEgreso(${egreso.id})"></ion-icon>
             </button>
         </div>
     </div>
 </div>
     `;
     return egresoHTML;
+}
+
+const eliminarEgreso = (id) => {
+    let indiceEliminar = egresos.findIndex(egreso => egreso.id === id);
+    egresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarEgresos();
 }
